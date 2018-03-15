@@ -35,10 +35,12 @@ def getname_tool(folder_path):
 	n=0 
 	for root,dirs,files in os.walk(folder_path):
 		# Uncomment this if you are working with ordered categories such as alphabets,digits, etc.
-		#dirs.sort()
+		dirs.sort()
+
 		if(len(files)!=0):
 			for f in files:
-				output = (f + " "+str(n))
+				parent = root.split("/")[1]
+				output = (parent +"/"+ f + " "+str(n))
 				store_output(output)
 			n = n + 1
 if __name__ == '__main__':
